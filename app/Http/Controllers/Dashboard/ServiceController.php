@@ -134,4 +134,16 @@ class ServiceController extends Controller
         // возвращаемся на главную
         return redirect()->route('services.index');
     }
+
+    public function header(Request $request)
+    {
+        // Получаем все данные с формы (с клиента)
+        $data = $request->all();
+
+        // Сохраняем данные в табице service_header
+        ServiceHeader::find(1)->update($data);
+
+        //возвращаемся на главную
+        return redirect()->route('services.index');
+    }
 }

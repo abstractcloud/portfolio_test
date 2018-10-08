@@ -135,14 +135,14 @@
         <div class="row section-header" data-aos="fade-up">
             <div class="col-full">
                 <h3 class="subhead">Услуги</h3>
-                <h1 class="display-1">We have everything you need to launch and grow a successful digital business.</h1>
+                <h1 class="display-1">{{ $serviceHeader->title }}</h1>
             </div>
         </div> <!-- end section-header -->
 
         <div class="row" data-aos="fade-up">
             <div class="col-full">
                 <p class="lead">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse. 
+                    {!! $serviceHeader->description !!}
                 </p>
             </div>
         </div> <!-- end about-desc -->
@@ -301,7 +301,7 @@
         <div class="row section-header" data-aos="fade-up">
             <div class="col-full">
                 <h3 class="subhead subhead--light">Контакты</h3>
-                <h1 class="display-1 display-1--light">Get in touch and let's make something great together. Let's turn your idea on an even greater product.</h1>
+                <h1 class="display-1 display-1--light">{{ $contacts->title }}</h1>
             </div>
         </div> <!-- end section-header -->
 
@@ -309,8 +309,8 @@
 
             <div class="col-full contact-main" data-aos="fade-up">
                 <p>
-                <a href="mailto:#0" class="contact-email">hello@transcend-studio.com</a>
-                <span class="contact-number">+1 (917) 123 456  /  +1 (917) 333 987</span>
+                <a href="mailto:{{ $contacts->email }}" class="contact-email">{{ $contacts->email }}</a>
+                <span class="contact-number">{{ $contacts->tel }}</span>
                 </p>
             </div> <!-- end contact-main -->
 
@@ -319,12 +319,10 @@
         <div class="row">
 
             <div class="col-five tab-full contact-secondary" data-aos="fade-up">
-                <h3 class="subhead subhead--light">Where To Find Us</h3>
+                <h3 class="subhead subhead--light">Как нас найти</h3>
 
                 <p class="contact-address">
-                    1600 Amphitheatre Parkway<br>
-                    Mountain View, CA<br>
-                    94043 US
+                    {!! $contacts->address !!}
                 </p>
             </div> <!-- end contact-secondary -->
 
@@ -333,26 +331,18 @@
 
                 <ul class="contact-social">
                     <li>
-                        <a href="https://www.facebook.com/vladimir.nikolaenko.378"><i class="fab fa-facebook"></i></a>
+                        <a href="{{ $contacts->facebook }}"><i class="fab fa-facebook"></i></a>
                     </li>
                     <li>
-                        <a href="#0"><i class="fab fa-twitter"></i></a>
-                    </li>
-                    <li>
-                        <a href="#0"><i class="fab fa-instagram"></i></a>
-                    </li>
-                    <li>
-                        <a href="#0"><i class="fab fa-behance"></i></a>
-                    </li>
-                    <li>
-                        <a href="#0"><i class="fab fa-dribbble"></i></a>
+                        <a href="{{ $contacts->linkedin }}"><i class="fab fa-linkedin"></i></a>
                     </li>
                 </ul> <!-- end contact-social -->
 
                 <div class="contact-subscribe">
-                    <form id="mc-form" class="group mc-form" novalidate="true">
+                    <form id="mc-form" class="group mc-form" novalidate="true" action="{{ route('email.send') }}">
                         <input type="email" value="" name="EMAIL" class="email" id="mc-email" placeholder="Email Address" required="">
-                        <input type="submit" name="subscribe" value="Subscribe">
+                        <textarea name="message" placeholder="Message" style="width: 100%;"></textarea>
+                        <button name="subscribe" value="Subscribe"> Отправить сообщение</button>
                         <label for="mc-email" class="subscribe-message"></label>
                     </form>
                 </div> <!-- end contact-subscribe -->
