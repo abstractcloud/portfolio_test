@@ -9,6 +9,10 @@ use App\Models\Service;
 use App\Models\ServiceHeader;
 use App\Models\Contact;
 
+use App\User;
+use Mail;
+use App\Mail\FeedBack;
+
 class HomeController extends Controller
 {
     /**
@@ -31,5 +35,17 @@ class HomeController extends Controller
             'serviceHeader' => $serviceHeader,
             'contacts' => $contacts
     	]);
+    }
+
+    public function email(Request $request)
+    {
+        $data = $request->all();
+
+        $user = new User();
+
+        $user->email = 'abstractcloud9@gmail.com';
+
+        // Класс Mail для отправки писем в laravel, метод to кому отправляем, метод send сама отправка письма класс нашего письма
+        Mail::to($user)->send(new FeedBack());
     }
 }

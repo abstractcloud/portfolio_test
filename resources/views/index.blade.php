@@ -339,11 +339,13 @@
                 </ul> <!-- end contact-social -->
 
                 <div class="contact-subscribe">
-                    <form id="mc-form" class="group mc-form" novalidate="true" action="{{ route('email.send') }}">
-                        <input type="email" value="" name="EMAIL" class="email" id="mc-email" placeholder="Email Address" required="">
-                        <textarea name="message" placeholder="Message" style="width: 100%;"></textarea>
+                    <form class="group mc-form" novalidate="true" action="{{ route('email.send') }}" method="post">
+                        <input type="email" value="" name="email" class="email" id="mc-email" placeholder="Email Address" required="">
+                        <textarea name="message" placeholder="Message" style="width: 100%; color: white;"></textarea>
                         <button name="subscribe" value="Subscribe"> Отправить сообщение</button>
                         <label for="mc-email" class="subscribe-message"></label>
+
+                        {{ csrf_field() }}
                     </form>
                 </div> <!-- end contact-subscribe -->
             </div> <!-- end contact-secondary -->

@@ -26,3 +26,6 @@ Route::put(
 	'/dashboard/service/header', 
 	'Dashboard\ServiceController@header'
 )->name('serviceheader.update');
+
+Route::post('/contacts/send', 'HomeController@email')
+	->name('email.send');
