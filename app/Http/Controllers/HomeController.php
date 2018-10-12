@@ -46,6 +46,6 @@ class HomeController extends Controller
         $user->email = 'abstractcloud9@gmail.com';
 
         // Класс Mail для отправки писем в laravel, метод to кому отправляем, метод send сама отправка письма класс нашего письма
-        Mail::to($user)->send(new FeedBack());
+        Mail::to($user)->send(new FeedBack($data['email'], $data['message']));
     }
 }

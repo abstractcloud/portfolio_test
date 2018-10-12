@@ -15,6 +15,10 @@ Route::get('/', 'HomeController@index');
 Route::get('/dashboard', 'DashboardController@index');
 Route::get('/dashboard/about', 'Dashboard\AboutController@index');
 Route::get('/dashboard/contacts', 'Dashboard\ContactsController@index');
+
+Route::put('/dashboard/contacts', 'Dashboard\ContactsController@store')
+	->name('contacts.store');
+
 Auth::routes();
 
 Route::post('/dashboard/about', 'Dashboard\AboutController@store');

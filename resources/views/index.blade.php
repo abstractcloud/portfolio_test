@@ -331,10 +331,10 @@
 
                 <ul class="contact-social">
                     <li>
-                        <a href="{{ $contacts->facebook }}"><i class="fab fa-facebook"></i></a>
+                        <a target="_blank" href="{{ $contacts->facebook }}"><i class="fab fa-facebook"></i></a>
                     </li>
                     <li>
-                        <a href="{{ $contacts->linkedin }}"><i class="fab fa-linkedin"></i></a>
+                        <a target="_blank" href="{{ $contacts->linkedin }}"><i class="fab fa-linkedin"></i></a>
                     </li>
                 </ul> <!-- end contact-social -->
 
